@@ -62,44 +62,44 @@ body{
 :target::before {
     content: "";
     display: block;
-    height: 275.6px; /* Adjust the height to match the header's height */
-    margin: -20px; /* Negative margin equal to the height */
+    height: 275.6px; 
+    margin: -20px;
   }
   
-/* Apply styles to the header */
+
 .shrink-header {
     position: sticky;
     top: 0;
-    background-color:var(--BGCOLOR); /* Adjust as needed */
-    transition: all 0.3s ease; /* Add a smooth transition effect */
+    background-color:var(--BGCOLOR); 
+    transition: all 0.3s ease; 
   }
   
   /* Shrink the header when scrolling down */
   .shrink-header.shrink {
-    transform: scaleY(0.8); /* Adjust the scale factor as needed */
+    transform: scaleY(0.8); 
     transform: scaleX(0.8);
-    padding: 10px 0; /* Adjust padding if necessary */
+    padding: 10px 0; /* Adjust padding*/
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    border-radius: 10px; /* Add a subtle shadow */
+    border-radius: 10px; 
   }
   
   /* Apply styles to header content */
   .header-content {
-    transition: all 0.5s ease; /* Add a smooth transition effect */
+    transition: all 0.5s ease;
   }
   
   /* Shrink header content when scrolling down */
   .shrink-header.shrink .header-content {
-    transform: scale(0.9); /* Adjust the scale factor as needed */
+    transform: scale(0.9); 
   }
   
-  /* Ensure the header remains sticky after shrinking */
+  
   .shrink-header.sticky {
     position: fixed;
-    z-index: 1000; /* Adjust as needed */
+    z-index: 1000; 
     width: 100%;
   }
-  /* Offset for the section content */
+ 
 
   
 
@@ -109,11 +109,16 @@ section{
     flex-direction: row;
 }
 
+
 .img__header{
-    width:clamp(10%,1.2vh,20%);
+    
     height:auto;
     padding:0.5rem;
 
+}
+
+.img_header img{
+     width:clamp(10%,1.2vh,20%);
 }
 
 
@@ -133,7 +138,7 @@ section{
     padding:var(--PADDING-TB) var(--PADDING-TB);
     font-weight: bolder;
     font-size: 1.8em;
-    margin-bottom: 1.5rem;
+    
     
 }
 .header__ul{
@@ -244,7 +249,7 @@ a:hover{
 #scroll-text a:hover{
     transform: scale(0.8);
 }
-/* Offset the header's sticky position for anchor links */
+
 
 
 /*About section*/

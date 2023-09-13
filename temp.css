@@ -36,7 +36,7 @@ body {
 
 
 
-/* Set the video to cover the entire viewport */
+
 #video-background {
     position: fixed;
     top: 0;
@@ -57,19 +57,13 @@ body {
     
 }
 
-
-
-
 .container{
     display: flex;
-    flex-grow:1;
-    justify-content:center;
-    align-items:center;
-    position: relative;
-    overflow: auto;
-    
-
+    flex-flow: column;
 }
+
+
+
 
 
 header {
@@ -89,13 +83,15 @@ header {
 .shrink-header {
     position: sticky;
     top: 0;
-    background-color:rgba(0, 0, 0, 0.4); /* Adjust as needed */
-    transition: all 0.3s ease; /* Add a smooth transition effect */
+    background-color:rgba(0, 0, 0, 0.5); 
+    transition: all 0.3s ease; 
     display: flex;
     flex-grow:1;
     justify-content:space-evenly;
     align-items:flex-start;
+    
 }
+
 
 
 .img__header{
@@ -109,6 +105,45 @@ header {
     top:1px;
 
 }
+
+/*nav*/
+
+
+.header__nav{
+    background-color:rgba(0, 0, 0, 0.7);
+    border: 1px solid white;
+    font-weight: bolder;
+    font-size: 1.8em;
+    margin-bottom: 1.5rem;
+    
+}
+.header__ul{
+    
+    list-style-type:none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+
+}
+nav a{
+    text-decoration: none;
+    color:whitesmoke;
+    margin:auto;
+    width:80%;
+}
+
+a:hover,a:focus{
+    
+    transition:0.5s;
+    text-shadow: 0 0 4px black;
+}
+a:hover{
+    font-size: 1.5em;
+    transition:0.6s;
+    transition-delay: 0.2s;
+}
+    
+
 
 
 
@@ -129,7 +164,8 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     min-height: 200px;
     max-height:900px;
-    margin-top: 1rem;   
+    margin-top: 1rem; 
+     
 }
 
 label, select {

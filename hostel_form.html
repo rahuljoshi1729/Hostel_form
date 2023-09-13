@@ -8,8 +8,8 @@
 </head>
 <body>
     <video autoplay muted loop id="video-background">
-        <source src="hostel_images/WhatsApp Video 2023-08-30 at 16.28.22.mp4" type="video/mp4">
-        <!-- Add additional source elements for other video formats if needed -->
+        <source src="hostel_images/back_wihout effect.mp4" type="video/mp4">
+       
     </video>
     <div class="container">
     <header class="shrink-header">
@@ -20,11 +20,24 @@
         <h1 class="header-content ajay_h1">Ajay Kumar Garg Engineering College</h1>
         <h1 class="header-content">Hostel Booking Form</h1>
     </div>
-
-
     </header>
-    
-</div>
+    <nav class="header__nav header-content">
+        <ul class="header__ul">
+            <li>
+                <a href="home.html#About"> About</a>
+            </li>
+            <li>
+                <a href="hostel_form.html">Hostel Forms</a>
+            </li>
+            <li>
+                <a href="home.html#notice">Notices</a>
+            </li>
+            <li>
+                <a href="cp.html">CP Hostel </a>
+            </li>
+        </ul>
+    </nav>
+    </div>
     
     
     <section class="form-container">
@@ -38,9 +51,11 @@
                 <option value="4th">4th Year</option>
             </select>
 
-            <label for="room-type">Select Room Type:</label>
+            <label for="room-type selected">Select Room Type:</label>
             <select id="room-type" name="room-type">
-                <!-- Room type options will be populated dynamically using JavaScript -->
+            <option selected disabled hidden>room types</option>
+                
+               
             </select>
             
             <button type="button" id="next-button">Next</button>
@@ -131,7 +146,7 @@
             // Clear the current options
             roomTypeSelect.innerHTML = '';
 
-            // Add the available room types as options
+            
             availableRoomTypes.forEach(roomType => {
                 const option = document.createElement('option');
                 option.value = roomType;
@@ -161,19 +176,21 @@ const form = document.querySelector('#full-form');
 const nextbutton = document.querySelector('#next-button');
 
 nextbutton.addEventListener('click', () => {
-    // Add or remove form elements as needed
+   
     const newInput = document.createElement('input');
     newInput.type = 'text';
     newInput.placeholder = 'New Input Field';
     form.appendChild(newInput);
 
-    // Adjust the container's height to fit the new content
+    //  container's height to fit the new content
     container.style.height = form.offsetHeight + '500px';
 });
     </script>
 
 </body>
-<footer>
+
+
+<footer class="footer">
     <div class="block">
         <div class="footer_info">
             <p>
@@ -194,5 +211,13 @@ nextbutton.addEventListener('click', () => {
         </div>
     </div>
 </footer>
+<script>
+    const Button = document.getElementById('next-button');
+    Button.addEventListener('click', () => {
+      const footer = document.querySelector('.footer');
+      footer.style.display = 'none';
+    });
+  </script>
+
 
 </html>
