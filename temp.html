@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>Hostel Booking Form</title>
+</head>
+<body>
+  <div class="content">
+    <h1>Hostel Form</h1>
+    <form id="hostel-form" action="submit_form.php" method="post">
+      <label for="year">Select Year:</label>
+      <select id="year" name="year" onchange="showRoomOptions(this.value)" required>
+        <option value="" disabled selected>Select Year</option>
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+      </select>
+
+      <div id="room-options" style="display: none;">
+        <label for="room-type">Select Room Type:</label>
+        <select id="room-type" name="room-type">
+          <option value="" disabled selected>Select Room Type</option>
+        </select>
+      </div>
+      <div id="additional-fields" style="display: none;">
+        <!-- Additional form fields based on room type will be dynamically added here -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+  
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+  
+        <label for="University-Roll-no">University-roll-no.:</label>
+        <input type="number" id="univeristyrollno" name="univeristyrollno" required>
+  
+        <label for="student-number">student-number:</label>
+        <input type="number" id="student-number" name="student-number" required>
+  
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" name="guests" min="1" required>
+  
+        <label for="special-requests">Special Requests:</label>
+        <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+      </div>
+      <button type="submit" id="submit-button" style="display: none;">Book Now</button>
+      
+    </form>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2023 Your Hostel. All rights reserved.</p>
+  </footer>
+
+  <script src="home.js"></script>
+</body>
+</html>

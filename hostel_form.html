@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="temp.css">
+    <title>Hostel Booking Form</title>
+</head>
+<body>
+    <video autoplay muted loop id="video-background">
+        <source src="hostel_images/WhatsApp Video 2023-08-30 at 16.28.22.mp4" type="video/mp4">
+        <!-- Add additional source elements for other video formats if needed -->
+    </video>
+    <div class="container">
+    <header class="shrink-header">
+        <image class="img__header header-content">
+            <img class="img__header header-content" src="hostel_images/logo-removebg-preview.png" alt="hostel_logo" width="478" height="480">
+        </image>
+        <div class="hedc">
+        <h1 class="header-content ajay_h1">Ajay Kumar Garg Engineering College</h1>
+        <h1 class="header-content">Hostel Booking Form</h1>
+    </div>
+
+
+    </header>
+    
+</div>
+    
+    
+    <section class="form-container">
+        <form id="booking-form">
+            <label for="year selected">Select Year:</label>
+            <select id="year" name="year">
+                <option selected disabled hidden>select year</option>
+                <option value="1st">1st Year</option>
+                <option value="2nd">2nd Year</option>
+                <option value="3rd">3rd Year</option>
+                <option value="4th">4th Year</option>
+            </select>
+
+            <label for="room-type">Select Room Type:</label>
+            <select id="room-type" name="room-type">
+                <!-- Room type options will be populated dynamically using JavaScript -->
+            </select>
+            
+            <button type="button" id="next-button">Next</button>
+        </form>
+        
+        <div id="additional-details" style="display: none;">
+            <form id="full-form">
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" name="studentName" required><br><br>
+        
+                <label for="rollNo">Student Roll No:</label>
+                <input type="text" id="rollNo" name="rollNo" required><br><br>
+        
+                <label for="studentNumber">Student Number:</label>
+                <input type="text" id="studentNumber" name="studentNumber" required><br><br>
+        
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required><br><br>
+        
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" id="fatherName" name="fatherName" required><br><br>
+        
+                <label for="motherName">Mother's Name:</label>
+                <input type="text" id="motherName" name="motherName" required><br><br>
+        
+                <label for="parentPhoneNumber">Parent's Phone Number:</label>
+                <input type="tel" id="parentPhoneNumber" name="parentPhoneNumber" required><br><br>
+        
+                <label for="distanceFromCollege">Distance from Home to College (in km):</label>
+                <input type="number" id="distanceFromCollege" name="distanceFromCollege" required><br><br>
+        
+                <label for="relativeInNCR">Do you have any relative in NCR region?</label>
+                <input type="radio" id="relativeYes" name="relativeInNCR" value="yes">Yes
+                <input type="radio" id="relativeNo" name="relativeInNCR" value="no">No<br><br>
+        
+                <div id="relativeInfo" style="display: none;">
+                    <label for="relativeName">Relative's Name:</label>
+                    <input type="text" id="relativeName" name="relativeName"><br><br>
+        
+                    <label for="relativePlace">Relative's Place in NCR:</label>
+                    <input type="text" id="relativePlace" name="relativePlace"><br><br>
+        
+                    <label for="relativePhoneNumber">Relative's Phone Number:</label>
+                    <input type="tel" id="relativePhoneNumber" name="relativePhoneNumber"><br><br>
+                </div>
+        
+                
+            </form>
+        
+            <script>
+                const relativeInfo = document.getElementById("relativeInfo");
+                const relativeYes = document.getElementById("relativeYes");
+        
+                relativeYes.addEventListener("change", function () {
+                    if (this.checked) {
+                        relativeInfo.style.display = "block";
+                    } else {
+                        relativeInfo.style.display = "none";
+                    }
+                });
+            </script>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</div>
+  
+    <script>
+        const yearSelect = document.getElementById('year');
+        const roomTypeSelect = document.getElementById('room-type');
+        const additionalDetails = document.getElementById('additional-details');
+        const nextButton = document.getElementById('next-button');
+
+        // Define room type options based on the selected year
+        const roomTypeOptions = {
+            '1st': ['double', 'triple'],
+            '2nd': ['single', 'double', 'triple'],
+            '3rd': ['single', 'double', 'triple'],
+            '4th': ['single', 'double', 'triple'],
+        };
+
+        // Function to update room type options based on the selected year
+        function updateRoomTypes() {
+            const selectedYear = yearSelect.value;
+            const availableRoomTypes = roomTypeOptions[selectedYear] || [];
+
+            // Clear the current options
+            roomTypeSelect.innerHTML = '';
+
+            // Add the available room types as options
+            availableRoomTypes.forEach(roomType => {
+                const option = document.createElement('option');
+                option.value = roomType;
+                option.text = roomType.charAt(0).toUpperCase() + roomType.slice(1); // Capitalize first letter
+                roomTypeSelect.appendChild(option);
+            });
+        }
+
+        // Initial update of room types
+        updateRoomTypes();
+
+        // Show additional details fields when the "Next" button is clicked
+        nextButton.addEventListener('click', function() {
+            additionalDetails.style.display = 'block';
+        });
+
+        // Add an event listener to the year select to update room types when the year changes
+        yearSelect.addEventListener('change', updateRoomTypes);
+    </script> 
+
+
+
+
+    <script>
+        const container = document.querySelector('.form-container');
+const form = document.querySelector('#full-form');
+const nextbutton = document.querySelector('#next-button');
+
+nextbutton.addEventListener('click', () => {
+    // Add or remove form elements as needed
+    const newInput = document.createElement('input');
+    newInput.type = 'text';
+    newInput.placeholder = 'New Input Field';
+    form.appendChild(newInput);
+
+    // Adjust the container's height to fit the new content
+    container.style.height = form.offsetHeight + '500px';
+});
+    </script>
+
+</body>
+<footer>
+    <div class="block">
+        <div class="footer_info">
+            <p>
+                27th Km Milestone,
+                Delhi-Meerut Expressway,
+                P.O. Adhyatmik Nagar,
+                <span>Ghaziabad - 201009</span></p>
+                <br>
+            <p>8744052891-93
+                7290034978
+                <span>Admissions Enquiry: 1800-200-0777</span></p>    
+        </div>
+        <div class="footer_about">
+            <h1>
+                About AKGEC
+            </h1>
+        <P>Ajay Kumar Garg Engineering College (AKGEC) offers four year under graduate B.Tech course in ten engineering branches, two year post graduate M.Tech course in four engineering branches and two year post graduate MCA course.</P>    
+        </div>
+    </div>
+</footer>
+
+</html>

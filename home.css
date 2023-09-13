@@ -1,0 +1,410 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior: smooth;
+    font-size:var(--FS);
+  
+}
+
+
+
+img{
+    display:block;
+    max-width:100%;
+    height:auto;
+}
+
+img,button,textarea{
+    font: inherit;
+}
+.nowrap{
+    white-space: nowrap;
+}
+
+/*varaibles*/
+
+:root{
+   /* COLORS */
+   --BGCOLOR:#ffd230;
+   --FONT-COLOR:BLACK;
+   --FONT-WHITE:whitesmoke;
+   --BORDER-COLOR:#333;
+   --BORDER:BLACK;
+   --F-COLOR:BLACK;
+   --F-HOVER:var(--BGCOLOR);
+   --SHADOW-COLOR:0 0 6px var(--BORDER-COLOR);
+   --PARA-FCOLOR: #323232;
+  
+
+    /*  PADDING SECTION */
+    --PADDING-TB:0.5em;
+    --PADDING-SIDE:2%;
+
+    /*font-family*/
+    --FS:clamp(1rem ,2.2vh, 1.5rem);
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.form{
+    flex-grow:1;
+}
+
+
+:target::before {
+    content: "";
+    display: block;
+    height: 275.6px; /* Adjust the height to match the header's height */
+    margin: -20px; /* Negative margin equal to the height */
+  }
+  
+/* Apply styles to the header */
+.shrink-header {
+    position: sticky;
+    top: 0;
+    background-color:var(--BGCOLOR); /* Adjust as needed */
+    transition: all 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  /* Shrink the header when scrolling down */
+  .shrink-header.shrink {
+    transform: scaleY(0.8); /* Adjust the scale factor as needed */
+    transform: scaleX(0.8);
+    padding: 10px 0; /* Adjust padding if necessary */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px; /* Add a subtle shadow */
+  }
+  
+  /* Apply styles to header content */
+  .header-content {
+    transition: all 0.5s ease; /* Add a smooth transition effect */
+  }
+  
+  /* Shrink header content when scrolling down */
+  .shrink-header.shrink .header-content {
+    transform: scale(0.9); /* Adjust the scale factor as needed */
+  }
+  
+  /* Ensure the header remains sticky after shrinking */
+  .shrink-header.sticky {
+    position: fixed;
+    z-index: 1000; /* Adjust as needed */
+    width: 100%;
+  }
+  /* Offset for the section content */
+
+  
+
+section{
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.img__header{
+    width:clamp(10%,1.2vh,20%);
+    height:auto;
+    padding:0.5rem;
+
+}
+
+
+.header_h1,.about_h1{
+    
+    width:100%;
+    font-size:4rem;
+    text-shadow: 0 0 6px var(--BORDER-COLOR);
+    padding-left: 0.5em;
+    align-items: center;
+    padding-top:0.5em;
+}
+
+
+.header__nav{
+    border:1px solid var(--BORDER);
+    padding:var(--PADDING-TB) var(--PADDING-TB);
+    font-weight: bolder;
+    font-size: 1.8em;
+    margin-bottom: 1.5rem;
+    
+}
+.header__ul{
+    
+    list-style-type:none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+
+}
+nav a{
+    text-decoration: none;
+    color:var(--F-COLOR);
+    margin:auto;
+    width:80%;
+}
+
+a:hover,a:focus{
+    
+    transition:0.5s;
+    text-shadow: 0 0 4px var(--BORDER-COLOR);
+}
+a:hover{
+    font-size: 1.5em;
+    transition:0.6s;
+    transition-delay: 0.2s;
+}
+
+.header_vi img{
+    box-shadow: 0 0 8px var(--BORDER-COLOR);
+    width:100%;
+    
+
+}
+#notice{
+    margin-top: 1.5rem;
+    background-color: var(--BGCOLOR);
+    border-top: 2px solid var(--BORDER);
+    border-bottom: 2px solid var(--BORDER);
+
+}
+
+/*css for scrolling text in notice*/
+    
+#scroll-container {
+    background-color: rgba(0, 0, 0, 0.181);
+    margin-left:25%;
+    margin-right: 25%;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  #scroll-text {
+    height: 100%;
+    text-align: center;
+    
+    /* animation properties */
+    -moz-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    
+    -moz-animation: my-animation 20s linear infinite;
+    -webkit-animation: my-animation 20s linear infinite;
+    animation: my-animation 20s linear infinite;
+  }
+  
+  /* for Firefox */
+  @-moz-keyframes my-animation {
+    from { -moz-transform: translateY(100%); }
+    to { -moz-transform: translateY(-100%); }
+  }
+  
+  /* for Chrome */
+  @-webkit-keyframes my-animation {
+    from { -webkit-transform: translateY(100%); }
+    to { -webkit-transform: translateY(-100%); }
+  }
+  
+  @keyframes my-animation {
+    from {
+      -moz-transform: translateY(100%);
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+    }
+    to {
+      -moz-transform: translateY(-100%);
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+  }
+#scroll-text:hover{
+    animation-play-state: paused;
+}
+#scroll-text a::before{
+    content:'#';
+    
+}
+
+#scroll-text a{
+    padding:1em;
+    display:flex;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--F-COLOR);
+
+}
+
+#scroll-text a:hover{
+    transform: scale(0.8);
+}
+/* Offset the header's sticky position for anchor links */
+
+
+/*About section*/
+
+.about_h1{
+    text-align: center;
+    
+    padding-bottom:0.3em
+    /* transition-property: text-decoration;
+    transition-duration: 0.5s; */
+}
+.about_h1:hover{
+    text-decoration: underline;
+    transition:text-decoration 0.5s ease;
+}
+.about_p1,.about_p2{
+    padding-left: 0.7rem;
+    padding-top:0.5rem ;
+    padding-bottom:0.5rem ;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color:var(--PARA-FCOLOR);
+    text-align: justify;
+}
+
+/*about boys hostel*/
+.about_boyshostel{
+    display: flex;
+    justify-content: space-evenly;
+    margin:2rem;
+    margin-top: 5rem;
+}
+.bh_img{
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+
+}
+
+.bh_img img{
+     align-items: center;
+     width:400px;
+     height:auto;
+     border-radius: 10px;
+     box-shadow: var(--SHADOW-COLOR);
+}
+
+
+.bh_list{
+    background-color: var(--BGCOLOR);
+    font-size:1.5em;
+    padding:2rem;
+    border-radius: 10px;
+    margin-right:5rem;
+}
+.bh_list ul li:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+
+span{
+    color:var(--BGCOLOR);
+}
+
+.bh_content h2{
+    font-size:60px;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+/*about girls hostel*/
+.about_girlshostel{
+    display:flex;
+    justify-content: space-evenly;
+    margin:2rem;
+    margin-top: 5rem;
+}
+
+.gh_img{
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+
+}
+
+.gh_img img{
+     align-items: center;
+     width:600px;
+     height:auto;
+     border-radius: 10px;
+     box-shadow: var(--SHADOW-COLOR);
+}
+
+
+.gh_list{
+    background-color: var(--BGCOLOR);
+    font-size:1.5em;
+    padding:2rem;
+    border-radius: 10px;
+    margin-right:5rem;
+}
+.gh_list ul li:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+
+
+span{
+    color:var(--BGCOLOR);
+}
+
+.gh_content h2{
+    font-size:60px;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+footer{
+    border-top:3px solid var(--BORDER);
+    background-color: var(--BGCOLOR);
+    bottom:100%;
+}
+
+.block{
+    display: flex;
+    padding:1rem;
+    justify-content: space-evenly;
+}
+.footer_info p:first-child::before{
+    content: url(hostel_images/person_pin_circle_FILL0_wght400_GRAD0_opsz24.svg);
+}
+.footer_info p:last-child::before{
+    content: url(hostel_images/call_FILL0_wght400_GRAD0_opsz24.svg);
+}
+
+.footer_info p{
+    font-size: 18px;
+}
+
+.footer_about h1{
+    font-weight: bold;
+    text-shadow: var(--SHADOW-COLOR);
+}
+.footer_about p{
+    font-size: 18px;
+
+}
+
+/* HOSTEL FORM*/
+.form_forter{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
